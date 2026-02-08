@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Payrolls.Models.Allowance>;
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>AllowanceId</th>
+                                <th>Name</th>
+                                <th>AllowanceCode</th>
+                                <th>IsActive</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.AllowanceId</td>
+                                    <td>@item.AllowanceName</td>
+                                    <td>@item.AllowanceCode</td>
+                                    <td>@item.IsActive</td>
+                                </tr>
+                            }
+                        </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
