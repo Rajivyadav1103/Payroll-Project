@@ -16,10 +16,29 @@ namespace Payrolls.Controllers
         {
             List<UserGroup>data =_context
                 .UserGroups
-                .Where(ug => ug.IsActive == "true")
+                .Where(x => x.IsActive == true)
                 .ToList();
 
             return View(data);
         }
+
+        [HttpPost]
+        public JsonResult Create(string UserGroupName, string UserGroupCode)
+        {
+            UserGroup ug = new UserGroup
+            {
+                UserGroupName = UserGroupName,
+                UserGroupCode = UserGroupCode
+            };
+
+            _context.UserGroups.Add(ug);
+            _context.SaveChanges();
+
+            return Json(new { message = "Saved successfully" });
+        }
+
+
+
+
     }
 }

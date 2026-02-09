@@ -1,72 +1,116 @@
 ﻿@model IEnumerable<Payrolls.Models.UserGroup>;
 
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card">
+              <div class="card-body">
 
-                    <label>UserGroupName</label><br />
-                <input types="text" class=" form-control txtUserGroupName table-striped" /><br />
-
-                <label>UserGroupCode</label><br />
-                <input types="text" class=" form-control txtUserGroupName table-striped" />
-
-                    <br />
-
-                   <button class="btn btnsave btn-success btn-hover mt-3">save</button>
-                <button class="btn btn-danger btn-hover mt-3" id="btncancel">cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-<div class="row">
-
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>UserGroupId</th>
-                            <th>Name</th>
-                            <th>UserGroupcode</th>
-                            <th>IsActive</th>
-
+                            <th>SN</th>
+                            <th>UserGroupName</th>
+                            <th>UserGroupCode</th>
+                            
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+                       </thead>
+                       <tbody>
+                        @foreach (var item in Model){
+
                             <tr>
                                 <td>@item.UserGroupId</td>
                                 <td>@item.UserGroupName</td>
                                 <td>@item.UserGroupCode</td>
-                                <td>@item.IsActive</td>
+
+                               
                             </tr>
-                        }
-                    </tbody>
+
+                               }
+
+                                
+                          
+                       </tbody>
+
                 </table>
-            </div>
-        </div>
-    </div>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+          <div class="card">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <label>UserGroupName</label><br />
+                          <input type="text" class="form-control txtUserGroupName" />
+                      </div>
+
+                    <div class="col-md-12">
+                        <label>UserGroupCode</label><br />
+                        <input type="text" class="form-control txtUserGroupCode" />
+
+                    </div>
+
+                    <div class="col-md-12 mt-3">
+                       <button type="button" class="btn btn-success btnsave">Save</button>
+                       <button type="button" class="btn btn-danger btncancel">Cancel</button>
+
+                    </div>
+
+
+                  </div>
+              </div>
 </div>
+      </div>
+  </div>
 
-@section Scripts {
+
+
+@section scripts {
     <script>
-        $(document).ready(function () {
+        $(document).ready(function(){
 
-            $(document).on("click", ".btnsave", function () {
-                alert("Save button clicked");
-            });
+        });
+        $(document).on('click', '.btncancel', function () {
+          
+            var ok =confirm("Are you sure to cancel the form..?")
+            if(ok== true){
+                $('.txtUserGroupName').val();
+                $('.txtUserGroupCode').val();
+
+                clearForm();
+            }
 
         });
 
+            function clearForm() {
+            $('.txtUserGroupName').val('');
+            $('.txtUserGroupCode').val('');
+        }
 
-        $(document).on("click","#btncancel",function(){
 
-            alert("this is cancel btn");
+        $(document).on('click', '.btnsave', function () {
+
+            var name = $('.txtUserGroupName').val();
+            var code = $('.txtUserGroupCode').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Create", "UserGroup")',
+                data: {
+                    UserGroupName: name,
+                    UserGroupCode: code
+                },
+                success: function (res) {
+                    toastr.success(res.message);
+                    clearForm();
+                },
+                error: function () {
+                    toastr.error("Message was not sent");
+                }
+            });
+
         });
     </script>
 }

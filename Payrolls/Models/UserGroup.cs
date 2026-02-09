@@ -8,7 +8,7 @@
 
         public string UserGroupCode { get; set; }
 
-        public string IsActive { get; set; }    
+        public bool IsActive { get; set; }    
 
         public DateTime createddate { get; set; }
 

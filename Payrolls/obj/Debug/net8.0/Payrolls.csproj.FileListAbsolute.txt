@@ -444,3 +444,4 @@ C:\Users\Dell\OneDrive - padmashree International College\Desktop\.net class 1\P
 C:\Users\Dell\OneDrive - padmashree International College\Desktop\.net class 1\Payrolls\Payrolls\obj\Debug\net8.0\Payrolls.csproj.AssemblyReference.cache
 C:\Users\Dell\OneDrive - padmashree International College\Desktop\.net class 1\Payrolls\Payrolls\obj\Debug\net8.0\Payrolls.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Dell\OneDrive - padmashree International College\Desktop\.net class 1\Payrolls\Payrolls\obj\Debug\net8.0\Payrolls.csproj.Up2Date
+C:\Users\Dell\OneDrive - padmashree International College\Desktop\.net class 1\Payrolls\Payrolls\obj\Debug\net8.0\Payrolls.sourcelink.json
