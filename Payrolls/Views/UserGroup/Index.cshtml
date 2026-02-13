@@ -1,34 +1,53 @@
 ﻿@model IEnumerable<Payrolls.Models.UserGroup>;
 
+
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>UserGroupName</label>
+                            <input type="text" class="form-control txtSearchUserGroupName " />
+                        </div>
+
+                    <div class="col-md-4">
+                        <label>UserGroupCode</label>
+                        <input type="text" class="form-control txtSearchUserGroupCode " />
+                    </div>
+
+                    <div class="col-md-4"><br />
+                       <button type="button" class="btn btn-success btnSearch">Search</button>
+                    </div>
+
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+
+
   <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
           <div class="card">
               <div class="card-body">
-
-                <table class="table table-hover table-striped">
+                
+                <table class="table table-hover table-striped tblSetup ">
                     <thead>
                         <tr>
                             <th>SN</th>
+                            
                             <th>UserGroupName</th>
                             <th>UserGroupCode</th>
+                            <th>Action</th>
                             
                         </tr>
                        </thead>
-                       <tbody>
-                        @foreach (var item in Model){
+                     
+                    <tbody class="main-data">
 
-                            <tr>
-                                <td>@item.UserGroupId</td>
-                                <td>@item.UserGroupName</td>
-                                <td>@item.UserGroupCode</td>
-
-                               
-                            </tr>
-
-                               }
-
-                                
-                          
+                           
                        </tbody>
 
                 </table>
@@ -55,6 +74,7 @@
                     <div class="col-md-12 mt-3">
                        <button type="button" class="btn btn-success btnsave">Save</button>
                        <button type="button" class="btn btn-danger btncancel">Cancel</button>
+                        <input type="hidden" value="0" class="hdnId" />
 
                     </div>
 
@@ -66,51 +86,178 @@
   </div>
 
 
-
 @section scripts {
     <script>
         $(document).ready(function(){
-
+            loadData();
         });
+
         $(document).on('click', '.btncancel', function () {
-          
-            var ok =confirm("Are you sure to cancel the form..?")
-            if(ok== true){
-                $('.txtUserGroupName').val();
-                $('.txtUserGroupCode').val();
+
+            var ok = confirm("Are you sure to cancel the form..?");
+            if(ok == true){
 
                 clearForm();
+            }
+        });
+
+        function clearForm() {
+            $('.txtUserGroupName').val('');
+            $('.txtUserGroupCode').val('');
+             $('.hdnId').val('0');
+        }
+
+        $(document).on('click', '.btnsave', function () {
+
+            var xyz = {
+                UserGroupName: $('.txtUserGroupName').val(),
+                UserGroupCode: $('.txtUserGroupCode').val(),
+               UserGroupId: parseInt($('.hdnId').val()) || 0
+            };
+
+            if(xyz.UserGroupName == ''){
+
+                toastr["error"]("please fill the usergroup name .....!");
+            }
+            else if(xyz.UserGroupCode == ''){
+                toastr["error"]("please fill the usergroup code .....!");
+            }
+            else {
+                $.ajax({
+                    type: 'POST',
+                    contentType:'application/json; charset=utf-8',
+                    url: '@Url.Action("Create", "UserGroup")',
+                    data: JSON.stringify(xyz),
+                    success: function(abc){
+                        toastr["success"](abc.message );
+
+                        clearForm();
+                        loadData();
+                    },
+                    error: function(){
+                        toastr["error"]("data not send", "error");
+                    }
+                });
             }
 
         });
 
-            function clearForm() {
-            $('.txtUserGroupName').val('');
-            $('.txtUserGroupCode').val('');
+        // =========load data in table=======
+
+        function loadData() {
+            var xyz = {
+                groupName: $('.txtSearchUserGroupName').val(),
+                groupCode: $('.txtSearchUserGroupCode').val(),
+            };
+            $.ajax({
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                url: '@Url.Action("GetActiveUserGroups", "UserGroup")?groupName='+xyz.groupName +'&groupCode=' + xyz.groupCode,
+                success: function (abc) {
+                    var htmls = '';
+                    $.each(abc, function (index, item) {
+                        htmls += '<tr>';
+                        htmls += '<td>' + (index + 1) + '</td>';
+                        // htmls += '<td>' + item.userGroupId + '</td>';
+                        htmls += '<td>' + item.userGroupName + '</td>';
+                        htmls += '<td>' + item.userGroupCode + '</td>';
+                       
+                        htmls += '<td><button style="margin-right:5px;" class="btn btn-secondary btn-sm btnEdit" data-key="' + item.userGroupId + '"><i class="fa fa-edit"></i>EDIT</button><button class="btn btn-danger btn-sm btnDelete" data-key="' + item.userGroupId + '"><i class="fa fa-trash"></i>DELETE</button></td>';
+                        htmls += '</tr>';
+                    });
+
+                    $('.main-data').html(htmls);
+
+                   $('.tblSetup').DataTable({
+                             dom: 'Bfrtip',                // This is required for buttons
+                      buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                     });
+
+                },
+                beforeSend: function () {
+                    //$.blockUI();
+                },
+                complete: function () {
+                    //$.unblockUI();
+                }
+            });
         }
 
 
-        $(document).on('click', '.btnsave', function () {
+        // =========edit=========
 
-            var name = $('.txtUserGroupName').val();
-            var code = $('.txtUserGroupCode').val();
-
+          $(document).on('click', '.btnEdit', function () {
+            var key = $(this).data('key');
             $.ajax({
-                type: 'POST',
-                url: '@Url.Action("Create", "UserGroup")',
-                data: {
-                    UserGroupName: name,
-                    UserGroupCode: code
-                },
-                success: function (res) {
-                    toastr.success(res.message);
-                    clearForm();
+                methodType: 'get',
+                content: '',
+                url: '@Url.Action("GetItemById", "UserGroup")?id=' + key,
+                success: function (abc) {
+                    if (abc.success == true) {
+                        $('.txtUserGroupName').val(abc.data.userGroupName);
+                        $('.txtUserGroupCode').val(abc.data.userGroupCode);
+                        $('.hdnId').val(abc.data.userGroupId);
+
+                    } else {
+                        toastr["error"](abc.message, "ERROR")
+                    }
                 },
                 error: function () {
-                    toastr.error("Message was not sent");
-                }
-            });
 
+                },
+                beforeSend: function () {
+                    //$.blockUI();
+                },
+                complete: function () {
+                    //$.unblockUI();
+                }
+
+
+            });
+        })
+        // =======delete
+          $(document).on('click','.btnDelete',function(){
+
+           var xyz=confirm("are you sure to delete the data.?")
+           if (xyz == true)
+         {
+
+            var key=$(this).data('key');
+
+             $.ajax({
+                methodType: 'get',
+                    content: 'application/json; charset=utf-8',
+                    url: '@Url.Action("DeleteUserGroup", "UserGroup")?id=' + key,
+                    success: function (abc) {
+                        if (abc.success) {
+                            toastr["success"](abc.message)
+                            loadData();
+                        } else {
+                            toastr["error"](abc.message, "ERROR")
+                        }
+                    },
+                    error: function () {
+
+                    },
+                    beforeSend: function () {
+                        //$.blockUI();
+                    },
+                    complete: function () {
+                        //$.unblockUI();
+                    }
+                });
+
+             
+           }
         });
+
+
+        $(document).on('click','.btnSearch',function(){
+            loadData();
+
+        })
+
+
+
     </script>
 }
