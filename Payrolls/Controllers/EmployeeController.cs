@@ -26,9 +26,6 @@ namespace Payrolls.Controllers
         }
 
 
-
-
-        
         [HttpGet]
         public JsonResult Create(int id, string fullname, string email, string contactNo, DateTime joinDate, decimal basicSalary)
         {
@@ -81,8 +78,7 @@ namespace Payrolls.Controllers
                 });
             }
         }
-       
-
+    
 
         [HttpGet]
         public JsonResult GetActiveEmployees(string fullname, string email)
@@ -96,11 +92,11 @@ namespace Payrolls.Controllers
 
             return Json(list);
         }
-     
+      
 
 
 
-       
+      
         [HttpGet]
         public JsonResult GetEmployeeById(int id)
         {
@@ -123,7 +119,7 @@ namespace Payrolls.Controllers
                 Data = item
             });
         }
-     
+       
         [HttpGet]
         public JsonResult DeleteEmployee(int id)
         {
@@ -149,8 +145,7 @@ namespace Payrolls.Controllers
                 Message = "Employee deleted successfully!"
             });
         }
-      
-
+       
 
 
     }

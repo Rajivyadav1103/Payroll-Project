@@ -83,7 +83,7 @@
                  
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnCancel" class="btn btn-danger" data-bs-dismiss="modal"> <i class="fa-solid fa-xmark"></i> Close</button>
+                    <button type="button" id="btnCancel" class="btn btn-danger" data-bs-dismiss="modal"> <i class="fa-solid fa-xmark"></i> Cancel</button>
                     <button type="button" class="btn btn-primary btnSave"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                     <input type="hidden" class="hdnId" value="0" />
                 </div>
@@ -93,7 +93,6 @@
 
    
 </div>
-
 
 @section Scripts {
     <script>
@@ -116,17 +115,18 @@
         });
 
 
-        $(document).on('click', '.btnCreate', function(){
+         $(document).on('click', '.btnCreate', function(){
                 clearForm();
                 $('#mdlSetup').modal('show');
             });
 
-      
+        
 
         $(document).on('click', '.btnSave', function () {
             var data = {
                 id: $('.hdnId').val(),
                 fullname: $('.txtFullname').val().trim(), 
+                email: $('.txtEmail').val().trim(),
                 contactNo: $('.txtContactNo').val().trim(),
                 joinDate: $('.txtJoinDate').val(),
                 basicSalary: $('.txtBasicSalary').val()
@@ -154,7 +154,7 @@
             }
 
 
-            $.ajax({   
+            $.ajax({    
                 method: 'GET',
                 url: '@Url.Action("Create", "Employee")',
 
@@ -163,6 +163,7 @@
                 success: function (resp) {
                     if (resp.success == true) {
                         toastr.success(resp.message);
+                         $('#mdlSetup').modal('hide');
                         clearForm();
                         loadData();
                     } else {
@@ -177,7 +178,7 @@
                 }
             });
         });
-      
+     
         function clearForm() {
             $('.txtFullname').val('');
             $('.txtEmail').val('');
@@ -188,7 +189,7 @@
         }
 
 
-       
+      
         function loadData() {
             var filters = {
                 fullname: $('.txtSearchName').val(),
@@ -218,7 +219,7 @@
                     });
 
 
-                    $('.main-data').html(html); 
+                    $('.main-data').html(html); // <tbody class="main-data">
 
                     new DataTable('.tblSetup');
 
@@ -242,7 +243,7 @@
         }
 
         
-        $(document).on('click', '.btnEdit', function () {  
+        $(document).on('click', '.btnEdit', function () {  // click events
             var id = $(this).data('id');
             $.ajax({
                 method: 'GET',
@@ -256,7 +257,7 @@
                         $('.txtJoinDate').val(resp.data.joinDate.split("T")[0]);
                         $('.txtBasicSalary').val(resp.data.basicSalary);
                         $('.hdnId').val(resp.data.employeeId);
-                         $('#mdlSetup').modal('show');
+                        $('#mdlSetup').modal('show');
                     } else {
                         toastr.error(resp.message);
                     }
@@ -269,8 +270,7 @@
                 }
             });
         });
-      
-
+    
         $(document).on('click', '.btnDelete', function () {
             if (!confirm("Are you sure you want to delete this employee?")) return;
 
@@ -296,7 +296,7 @@
             });
         });
 
-     
+      
 
     </script>
 }

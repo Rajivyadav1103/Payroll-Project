@@ -14,6 +14,6 @@ namespace Payrolls.DAO
         public DbSet<Users> users { get; set; }
         public DbSet<Employee> Employee { get; set; }
 
-        public DbSet<Allowance> Allowances { get; set; }
+        public DbSet<Allowance> Allowance { get; set; }
     }
 }
