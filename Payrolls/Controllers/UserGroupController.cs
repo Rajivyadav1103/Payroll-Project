@@ -5,7 +5,7 @@ using Payrolls.Models;
 
 namespace Payrolls.Controllers
 {
-    public class UserGroupController : Controller
+    public class UserGroupController : BaseController
     {
         ApplicationDbContext _context;
         public UserGroupController(ApplicationDbContext context) 
@@ -15,12 +15,8 @@ namespace Payrolls.Controllers
 
         public IActionResult Index()
         {
-            List<UserGroup>data =_context
-                .UserGroups
-                .Where(x => x.IsActive == true)
-                .ToList();
-
-            return View(data);
+          
+            return View();
         }
 
         [HttpPost]

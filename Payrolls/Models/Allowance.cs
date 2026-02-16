@@ -1,16 +1,24 @@
-﻿namespace Payrolls.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Payrolls.Models
 {
     public class Allowance
     {
 
-        public int AllowanceId { get; set; }    
+        [Key]
+        public int AllowanceId { get; set; }
 
-        public string AllowanceName { get; set; }   
 
-        public string AllowanceCode { get; set; }   
+        public string AllowanceName { get; set; }
+
+
+        public string AllowanceCode { get; set; }
+
+        public int OrderKey { get; set; }
 
         public bool IsActive { get; set; }
-       public DateTime createddate { get; set; }   
+        public DateTime CreatedDate { get; set; }
+
 
     }
 }

@@ -38,11 +38,14 @@ namespace Payrolls.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("createddate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("OrderKey")
+                        .HasColumnType("int");
 
                     b.HasKey("AllowanceId");
 
@@ -74,6 +77,48 @@ namespace Payrolls.Migrations
                     b.HasKey("UserGroupId");
 
                     b.ToTable("UserGroups");
+                });
+
+            modelBuilder.Entity("Payrolls.Models.Users", b =>
+                {
+                    b.Property<int>("UserID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MobileNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Validfrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Validto")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("UserID");
+
+                    b.ToTable("users");
                 });
 #pragma warning restore 612, 618
         }

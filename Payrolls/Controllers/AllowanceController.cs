@@ -14,9 +14,18 @@ namespace Payrolls.Controllers
         public IActionResult Index()
         {
 
-
-
             return View();
         }
+
+        [HttpPost]
+        public JsonResult Create()
+        {
+
+            return Json(new{
+
+            });
+        }
+
+
     }
 }

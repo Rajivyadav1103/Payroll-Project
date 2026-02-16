@@ -1,5 +1,12 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\cloud-based-payroll-software.png
+wwwroot\images\download (13).png
+wwwroot\images\images (10).png
+wwwroot\images\images (11).png
+wwwroot\images\images (12).png
+wwwroot\images\images (13).png
+wwwroot\images\payroll.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "Users";
+}
+
+<h3>Users</h3>
+
+
+
+<!-- Search + Create Row -->
+<div class="row mb-3">
+
+ <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>UserName</label>
+                        <input type="text" id="txtSearchUserName" class="form-control" placeholder="Search by username" />
+                    </div>
+
+                    <div class="col-md-3 mt-3">
+                        <button type="button" class="btn btn-primary btnSearch">Search</button>
+                        <button type="button" class="btn btn-success btnCreate">Create</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+ </div>
+</div>
+
+<!-- Users Table -->
+<div class="row">
+   <div class="card">
+       <div class="card-body">
+            <div class="col-md-12">
+                <table class="table table-striped" id="tblUsers">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>UserName</th>
+                            <th>FullName</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Valid From</th>
+                            <th>Valid To</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+       </div>
+   </div>
+</div>
+
+<!-- Modal for Create/Edit -->
+<div class="modal fade" id="mdlSetup" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">User Setup</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="txtUserID" />
+                <div class="mb-2"><label>UserName</label><input type="text" id="txtUserName" class="form-control" /></div>
+                <div class="mb-2"><label>FullName</label><input type="text" id="txtFullName" class="form-control" /></div>
+                <div class="mb-2"><label>Password</label><input type="password" id="txtPassword" class="form-control" /></div>
+                <div class="mb-2"><label>Confirm Password</label><input type="password" id="txtConfirmPassword" class="form-control" /></div>
+                <div class="mb-2"><label>Email</label><input type="text" id="txtEmail" class="form-control" /></div>
+                <div class="mb-2"><label>Mobile Number</label><input type="text" id="txtMobileNumber" class="form-control" /></div>
+                <div class="mb-2"><label>Valid From</label><input type="date" id="txtValidFrom" class="form-control" /></div>
+                <div class="mb-2"><label>Valid To</label><input type="date" id="txtValidTo" class="form-control" /></div>
+                <div class="mb-2"><label><input type="checkbox" id="chkIsActive" checked /> Is Active</label></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btnSave">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function(){
+
+            loadUsers('');
+
+            // Open modal
+            $(document).on('click', '.btnCreate', function(){
+                clearForm();
+                $('#mdlSetup').modal('show');
+            });
+
+            // Save user
+            $(document).on('click', '.btnSave', function(){
+                var model = {
+                    UserID: $('#txtUserID').val() || 0,
+                    UserName: $('#txtUserName').val(),
+                    FullName: $('#txtFullName').val(),
+                    Password: $('#txtPassword').val(),
+                    ConfirmPassword: $('#txtConfirmPassword').val(),
+                    Email: $('#txtEmail').val(),
+                    MobileNumber: $('#txtMobileNumber').val(),
+                    Validfrom: $('#txtValidFrom').val(),
+                    Validto: $('#txtValidTo').val(),
+                    IsActive: $('#chkIsActive').is(':checked')
+                };
+
+                if(model.UserName=='' || model.FullName=='' || model.Password==''){
+                    toastr.error("Please fill required fields.");
+                    return;
+                }
+
+                $.ajax({
+                    url:'/Users/SaveUsers',
+                    type:'POST',
+                    contentType:'application/json',
+                    data:JSON.stringify(model),
+                    success:function(res){
+                        if(res.success){
+                            toastr.success(res.message);
+                            $('#mdlSetup').modal('hide');
+                            clearForm();
+                            loadUsers('');
+                        } else toastr.error(res.message);
+                    }
+                });
+            });
+
+            // Edit user
+            $(document).on('click','.btnEdit',function(){
+                var id = $(this).data('id');
+                $.ajax({
+                    url:'/Users/GetUsersBySearch',
+                    type:'POST',
+                    contentType:'application/json',
+                    data:JSON.stringify(''),
+                    success:function(data){
+                        var user = data.find(u => u.userID == id);
+                        if(user){
+                            $('#txtUserID').val(user.userID);
+                            $('#txtUserName').val(user.userName);
+                            $('#txtFullName').val(user.fullName);
+                            $('#txtEmail').val(user.email);
+                            $('#txtMobileNumber').val(user.mobileNumber);
+                            $('#txtValidFrom').val(user.validfrom ? user.validfrom.split('T')[0] : '');
+                            $('#txtValidTo').val(user.validto ? user.validto.split('T')[0] : '');
+                            $('#chkIsActive').prop('checked', user.isActive);
+                            $('#mdlSetup').modal('show');
+                        }
+                    }
+                });
+            });
+
+                   // Delete user (soft delete)
+        $(document).on('click','.btnDelete',function(){
+            var id = $(this).data('id');
+            if(confirm("Are you sure to delete this user?")){
+                $.post('/Users/DeleteUser',{id:id},function(res){
+                    if(res.success){
+                        toastr.success(res.message);
+                        loadUsers(''); // reload table
+                    } else {
+                        toastr.error(res.message);
+                    }
+                });
+            }
+        });
+
+
+            // Search
+            $(document).on('click','.btnSearch',function(){
+                var searchName = $('#txtSearchUserName').val().trim();
+                loadUsers(searchName);
+            });
+
+            function clearForm(){
+                $('#txtUserID').val('');
+                $('#txtUserName').val('');
+                $('#txtFullName').val('');
+                $('#txtPassword').val('');
+                $('#txtConfirmPassword').val('');
+                $('#txtEmail').val('');
+                $('#txtMobileNumber').val('');
+                $('#txtValidFrom').val('');
+                $('#txtValidTo').val('');
+                $('#chkIsActive').prop('checked', true);
+            }
+
+            function loadUsers(search){
+                $.ajax({
+                    url:'/Users/GetUsersBySearch',
+                    type:'POST',
+                    contentType:'application/json',
+                    data:JSON.stringify(search),
+                    success:function(data){
+                        var html='';
+                        $.each(data,function(i,u){
+                            html += '<tr>';
+                            html += '<td>'+u.userID+'</td>';
+                            html += '<td>'+u.userName+'</td>';
+                            html += '<td>'+u.fullName+'</td>';
+                            html += '<td>'+(u.email||'')+'</td>';
+                            html += '<td>'+(u.mobileNumber||'')+'</td>';
+                            html += '<td>'+(u.validfrom ? new Date(u.validfrom).toLocaleDateString() : '')+'</td>';
+                            html += '<td>'+(u.validto ? new Date(u.validto).toLocaleDateString() : '')+'</td>';
+                            html += '<td><button class="btn btn-sm btn-secondary btnEdit" data-id="'+u.userID+'">Edit</button> ';
+                            html += '<button class="btn btn-sm btn-danger btnDelete" data-id="'+u.userID+'">Delete</button></td>';
+                            html += '</tr>';
+                        });
+                        $('#tblUsers tbody').html(html);
+                    }
+                });
+            }
+
+        });
+    </script>
+}

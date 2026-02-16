@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="col-md-4"><br />
-                       <button type="button" class="btn btn-success btnSearch">Search</button>
+                        <button type="button" class="btn btn-success btnSearch"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </div>
 
                     </div>
@@ -29,9 +29,9 @@
 
 
   <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
           <div class="card">
-              <div class="card-body">
+            <div class="card-body" style="overflow:auto;">
                 
                 <table class="table table-hover table-striped tblSetup ">
                     <thead>
@@ -72,8 +72,9 @@
                     </div>
 
                     <div class="col-md-12 mt-3">
-                       <button type="button" class="btn btn-success btnsave">Save</button>
-                       <button type="button" class="btn btn-danger btncancel">Cancel</button>
+                        <button type="button" class="btn btn-success btnsave"> <i class="fa-solid fa-floppy-disk"></i> Save</button>
+
+                        <button type="button" class="btn btn-danger btncancel">  <i class="fa-solid fa-xmark"></i> Cancel</button>
                         <input type="hidden" value="0" class="hdnId" />
 
                     </div>
@@ -162,16 +163,19 @@
                         htmls += '<td>' + item.userGroupName + '</td>';
                         htmls += '<td>' + item.userGroupCode + '</td>';
                        
-                        htmls += '<td><button style="margin-right:5px;" class="btn btn-secondary btn-sm btnEdit" data-key="' + item.userGroupId + '"><i class="fa fa-edit"></i>EDIT</button><button class="btn btn-danger btn-sm btnDelete" data-key="' + item.userGroupId + '"><i class="fa fa-trash"></i>DELETE</button></td>';
+                        htmls += '<td><button style="margin-right:5px;" class="btn btn-secondary btn-sm btnEdit" data-key="' + item.userGroupId + '"><i class="fa fa-edit"></i> EDIT</button><button class="btn btn-danger btn-sm btnDelete" data-key="' + item.userGroupId + '"><i class="fa fa-trash"></i> DELETE</button></td>';
                         htmls += '</tr>';
                     });
 
                     $('.main-data').html(htmls);
 
-                   $('.tblSetup').DataTable({
-                             dom: 'Bfrtip',                // This is required for buttons
-                      buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-                     });
+                          if (!$.fn.DataTable.isDataTable('.tblSetup')) {
+            $('.tblSetup').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            });
+        }
+
 
                 },
                 beforeSend: function () {
