@@ -1,5 +1,302 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Full Name</label><br />
+                        <input type="text" class="form-control txtSearchName" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Email</label><br />
+                        <input type="text" class="form-control txtSearchEmail" />
+                    </div>
+                    <div class="col-md-3">
+                        <br /> 
+                        <button type="button" class="btn btn-primary btnSearch"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                        <button type="button" class="btn btn-success btnCreate"><i class="fa-solid fa-address-book"></i> Add Employee</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* // ------this is the Table box html code start ------- *@
+<div class="row mt-2">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body" style="overflow:auto;">
+                <table class="table table-hover tblSetup">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Contact No</th>
+                            <th>Join Date</th>
+                            <th>Basic Salary</th>
+                            <th>Is Active</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="main-data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="mdlSetup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Employee Form</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control txtFullname" />
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label>Email</label>
+                        <input type="email" class="form-control txtEmail" />
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label>Contact No</label>
+                        <input type="text" class="form-control txtContactNo" />
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label>Join Date</label>
+                        <input type="date" class="form-control txtJoinDate" />
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label>Basic Salary</label>
+                        <input type="number" class="form-control txtBasicSalary" />
+                    </div>
+
+                 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnCancel" class="btn btn-danger" data-bs-dismiss="modal"> <i class="fa-solid fa-xmark"></i> Close</button>
+                    <button type="button" class="btn btn-primary btnSave"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                    <input type="hidden" class="hdnId" value="0" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
+
+
+@section Scripts {
+    <script>
+
+
+        $(document).ready(function () {
+            loadData();
+        });
+
+
+
+        $(document).on('click', '.btnSearch', function () {
+            loadData();
+        });
+
+
+        $(document).on('click', '#btnCancel', function () {
+            if (confirm('Are you sure to cancel?'))
+            clearForm();
+        });
+
+
+        $(document).on('click', '.btnCreate', function(){
+                clearForm();
+                $('#mdlSetup').modal('show');
+            });
+
+      
+
+        $(document).on('click', '.btnSave', function () {
+            var data = {
+                id: $('.hdnId').val(),
+                fullname: $('.txtFullname').val().trim(), 
+                contactNo: $('.txtContactNo').val().trim(),
+                joinDate: $('.txtJoinDate').val(),
+                basicSalary: $('.txtBasicSalary').val()
+            };
+
+            if (data.fullname == "") {
+                toastr.error("Please enter full name.");
+                return;
+            }
+            if (data.email == "") {
+                toastr.error("Please enter email.");
+                return;
+            }
+            if (data.contactNo == "") {
+                toastr.error("Please enter contact number.");
+                return;
+            }
+            if (data.joinDate == "") {
+                toastr.error("Please select join date.");
+                return;
+            }
+            if (data.basicSalary == "" || isNaN(data.basicSalary)) {
+                toastr.error("Please enter a valid basic salary.");
+                return;
+            }
+
+
+            $.ajax({   
+                method: 'GET',
+                url: '@Url.Action("Create", "Employee")',
+
+                data: data,
+
+                success: function (resp) {
+                    if (resp.success == true) {
+                        toastr.success(resp.message);
+                        clearForm();
+                        loadData();
+                    } else {
+                        toastr.error(resp.message);
+                    }
+                },
+                beforeSend: function () {
+                    // $.blockUI();
+                },
+                complete: function () {
+                    // $.unblockUI();
+                }
+            });
+        });
+      
+        function clearForm() {
+            $('.txtFullname').val('');
+            $('.txtEmail').val('');
+            $('.txtContactNo').val('');
+            $('.txtJoinDate').val('');
+            $('.txtBasicSalary').val('');
+            $('.hdnId').val('0');
+        }
+
+
+       
+        function loadData() {
+            var filters = {
+                fullname: $('.txtSearchName').val(),
+                email: $('.txtSearchEmail').val()
+            };
+
+            $.ajax({
+                method: 'GET',
+                url: '@Url.Action("GetActiveEmployees", "Employee")',
+                data: filters,
+                success: function (data) {
+                    var html = '';
+                    $.each(data, function (i, item) {
+                        html += '<tr>';
+                        html += '<td>' + (i + 1) + '</td>';
+                        html += '<td>' + item.fullname + '</td>';
+                        html += '<td>' + item.email + '</td>';
+                        html += '<td>' + item.contactNo + '</td>';
+                        html += '<td>' + item.joinDate.split("T")[0] + '</td>';
+                        html += '<td>' + item.basicSalary + '</td>';
+                        html += '<td>' + (item.isActive == true ? "true" : "false") + '</td>';
+                        html += '<td>' +
+                            '<button class="btn btn-secondary btn-sm btnEdit" data-id="' + item.employeeId + '"><i class="fa-solid fa-pen-to-square"></i> Edit</button> ' +
+                            '<button class="btn btn-danger btn-sm btnDelete" data-id="' + item.employeeId + '"> <i class="fa-solid fa-trash"></i> Delete</button>' +
+                            '</td>';
+                        html += '</tr>';
+                    });
+
+
+                    $('.main-data').html(html); 
+
+                    new DataTable('.tblSetup');
+
+                    // new DataTable('.tblSetup', {
+                    //     layout: {
+                    //         topStart: {
+                    //             buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                    //         }
+                    //     }
+                    // });
+
+
+                },
+                beforeSend: function () {
+                    // $.blockUI();
+                },
+                complete: function () {
+                    // $.unblockUI();
+                }
+            });
+        }
+
+        
+        $(document).on('click', '.btnEdit', function () {  
+            var id = $(this).data('id');
+            $.ajax({
+                method: 'GET',
+                url: '@Url.Action("GetEmployeeById", "Employee")',
+                data: { id: id },
+                success: function (resp) {
+                    if (resp.success == true) {
+                        $('.txtFullname').val(resp.data.fullname);
+                        $('.txtEmail').val(resp.data.email);
+                        $('.txtContactNo').val(resp.data.contactNo);
+                        $('.txtJoinDate').val(resp.data.joinDate.split("T")[0]);
+                        $('.txtBasicSalary').val(resp.data.basicSalary);
+                        $('.hdnId').val(resp.data.employeeId);
+                         $('#mdlSetup').modal('show');
+                    } else {
+                        toastr.error(resp.message);
+                    }
+                },
+                beforeSend: function () {
+                    // $.blockUI();
+                },
+                complete: function () {
+                    // $.unblockUI();
+                }
+            });
+        });
+      
+
+        $(document).on('click', '.btnDelete', function () {
+            if (!confirm("Are you sure you want to delete this employee?")) return;
+
+            var id = $(this).data('id');
+            $.ajax({
+                method: 'GET',
+                url: '@Url.Action("DeleteEmployee", "Employee")',
+                data: { id: id },
+                success: function (resp) {
+                    if (resp.success == true) {
+                        toastr.success(resp.message);
+                        loadData();
+                    } else {
+                        toastr.error(resp.message);
+                    }
+                },
+                beforeSend: function () {
+                    // $.blockUI();
+                },
+                complete: function () {
+                    // $.unblockUI();
+                }
+            });
+        });
+
+     
+
+    </script>
 }
