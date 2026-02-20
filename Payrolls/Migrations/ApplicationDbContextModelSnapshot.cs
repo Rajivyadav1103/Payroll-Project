@@ -116,6 +116,79 @@ namespace Payrolls.Migrations
                     b.ToTable("Employee");
                 });
 
+            modelBuilder.Entity("Payrolls.Models.EmployeeAllowanceInfo", b =>
+                {
+                    b.Property<int>("EmployeeAllowanceID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeAllowanceID"));
+
+                    b.Property<int>("AllowanceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllowanceMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllowanceYear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("EmployeeAllowanceID");
+
+                    b.HasIndex("AllowanceId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("EmployeeAllowanceInfos");
+                });
+
+            modelBuilder.Entity("Payrolls.Models.EmployeeDeductionInfo", b =>
+                {
+                    b.Property<int>("EmployeeDeductionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeDeductionId"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DeductionHeadId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DeductionMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DeductionYear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("EmployeeDeductionId");
+
+                    b.HasIndex("DeductionHeadId");
+
+                    b.HasIndex("EmployeeID");
+
+                    b.ToTable("EmployeeDeductionInfo");
+                });
+
             modelBuilder.Entity("Payrolls.Models.UserGroup", b =>
                 {
                     b.Property<int>("UserGroupId")
@@ -183,6 +256,44 @@ namespace Payrolls.Migrations
                     b.HasKey("UserID");
 
                     b.ToTable("users");
+                });
+
+            modelBuilder.Entity("Payrolls.Models.EmployeeAllowanceInfo", b =>
+                {
+                    b.HasOne("Payrolls.Models.Allowance", "Allowance")
+                        .WithMany()
+                        .HasForeignKey("AllowanceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Payrolls.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Allowance");
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("Payrolls.Models.EmployeeDeductionInfo", b =>
+                {
+                    b.HasOne("Payrolls.Models.Deduction", "DeductionHead")
+                        .WithMany()
+                        .HasForeignKey("DeductionHeadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Payrolls.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DeductionHead");
+
+                    b.Navigation("Employee");
                 });
 #pragma warning restore 612, 618
         }

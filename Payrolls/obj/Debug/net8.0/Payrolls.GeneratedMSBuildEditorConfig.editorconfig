@@ -32,6 +32,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVkdWN0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/EmployeeAllowanceInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVBbGxvd2FuY2VJbmZvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/EmployeeDeductionInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVEZWR1Y3Rpb25JbmZvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +54,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Shared/_HeaderPart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXJQYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Shared/_LeftBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MZWZ0QmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -71,3 +91,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-l4hpxntosm
+
+[C:/Users/Dell/OneDrive - padmashree International College/Desktop/.net class 1/Payrolls/Payrolls/Views/Shared/_Layout_old.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfb2xkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-maonhk2ntq

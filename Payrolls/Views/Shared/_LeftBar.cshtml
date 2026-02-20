@@ -1,0 +1,26 @@
+﻿<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="@Url.Action("Index","Home")"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-cogs"></i>
+                        Setups
+                    </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa-solid fa-user-group"></i><a href="@Url.Action("Index", "UserGroup")">User Group</a></li>
+                        <li><i class="fa-solid fa-circle-minus"></i><a href="@Url.Action("Index", "Deduction")">Deduction</a></li>
+                        <li><i class="fa-solid fa-briefcase"></i><a href="@Url.Action("Index", "Employee")">Employee</a></li>
+                        <li><i class="fa-solid fa-money-check-dollar"></i><a href="@Url.Action("Index", "Allowance")">Allowance</a></li>
+                        <li><i class="fa-solid fa-file-arrow-down"></i><a href="@Url.Action("EmployeeDeduction", "EmployeeDeductionInfo")">Employee Deduction Info</a></li>
+                        <li><i class="fa-solid fa-file-arrow-up"></i><a href="@Url.Action("EmployeeAllowance", "EmployeeAllowanceInfo")">Employee Allowance Info</a></li>
+                        <li><i class="fa-solid fa-receipt"></i><a href="@Url.Action("Generate", "Payroll")">Generate Payroll</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside>

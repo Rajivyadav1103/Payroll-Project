@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\views\\deduction\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\views\\deduction\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\views\\employeeallowanceinfo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\views\\employeeallowanceinfo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\views\\allowance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\views\\allowance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\controllers\\deductioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\controllers\\deductioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\models\\deduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\models\\deduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\views\\shared\\_layout_old.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\views\\shared\\_layout_old.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|c:\\users\\dell\\onedrive - padmashree international college\\desktop\\.net class 1\\payrolls\\payrolls\\controllers\\employeeallowanceinfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AF3D565-FB66-4539-810E-503B902B9457}|Payrolls\\Payrolls.csproj|solutionrelative:payrolls\\controllers\\employeeallowanceinfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +34,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 246,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Payrolls\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Payrolls\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAADACAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T14:58:28.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout_old.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Shared\\_Layout_old.cshtml",
+              "RelativeDocumentMoniker": "Payrolls\\Views\\Shared\\_Layout_old.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Shared\\_Layout_old.cshtml",
+              "RelativeToolTip": "Payrolls\\Views\\Shared\\_Layout_old.cshtml",
+              "ViewState": "AgIAAKQBAAAAAAAAAAAmwMMBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T14:57:42.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Payrolls\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Payrolls\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAK8BAAAAAAAAAAAAAMMBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T14:57:38.411Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -40,48 +87,35 @@
               "RelativeDocumentMoniker": "Payrolls\\Views\\Allowance\\Index.cshtml",
               "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Allowance\\Index.cshtml",
               "RelativeToolTip": "Payrolls\\Views\\Allowance\\Index.cshtml",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAAEIAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEEAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-18T14:52:04.029Z",
+              "WhenOpened": "2026-02-20T14:49:45.646Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Deduction\\Index.cshtml",
-              "RelativeDocumentMoniker": "Payrolls\\Views\\Deduction\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Deduction\\Index.cshtml",
-              "RelativeToolTip": "Payrolls\\Views\\Deduction\\Index.cshtml",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEcAAAAZAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\EmployeeAllowanceInfo\\Index.cshtml",
+              "RelativeDocumentMoniker": "Payrolls\\Views\\EmployeeAllowanceInfo\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\EmployeeAllowanceInfo\\Index.cshtml",
+              "RelativeToolTip": "Payrolls\\Views\\EmployeeAllowanceInfo\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-18T07:41:16.396Z",
+              "WhenOpened": "2026-02-20T14:37:34.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Deduction.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Models\\Deduction.cs",
-              "RelativeDocumentMoniker": "Payrolls\\Models\\Deduction.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Models\\Deduction.cs",
-              "RelativeToolTip": "Payrolls\\Models\\Deduction.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABQAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "EmployeeAllowanceInfoController.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Controllers\\EmployeeAllowanceInfoController.cs",
+              "RelativeDocumentMoniker": "Payrolls\\Controllers\\EmployeeAllowanceInfoController.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Controllers\\EmployeeAllowanceInfoController.cs",
+              "RelativeToolTip": "Payrolls\\Controllers\\EmployeeAllowanceInfoController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwFYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T07:38:47.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DeductionController.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Controllers\\DeductionController.cs",
-              "RelativeDocumentMoniker": "Payrolls\\Controllers\\DeductionController.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Controllers\\DeductionController.cs",
-              "RelativeToolTip": "Payrolls\\Controllers\\DeductionController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwH0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T07:33:55.481Z",
+              "WhenOpened": "2026-02-20T14:37:02.478Z",
               "EditorCaption": ""
             }
           ]

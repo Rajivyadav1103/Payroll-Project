@@ -1,0 +1,261 @@
+﻿@{
+    ViewData["Title"] = "Employee Allowances";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="form-label">Employee Name</label>
+                        <input type="text" class="form-control empname_filter" placeholder="Type employee name">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Allowance Name</label>
+                        <input type="text" class="form-control allowname_filter" placeholder="Type allowance name">
+                    </div>
+                    <div class="col-md-3 mt-4">
+                       
+                        <button class="btn btn-primary  find" type="button" style="width:100px;"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+
+                        <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-address-book"></i>Add Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body" style="overflow:auto;">
+                <table class="table table-hover tblSetup">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Employee Name</th>
+                            <th>Allowance Name</th>
+                            <th>Year</th>
+                            <th>Month</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="main-data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label>Employee</label>
+                        <select class="form-control empid"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Allowance Head</label>
+                        <select class="form-control dedid"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Month</label>
+                        <select class="form-control mon">
+                            <option value="0">Choose</option>
+                            <option value="1">Jan</option>
+                            <option value="2">Feb</option>
+                            <option value="3">Mar</option>
+                            <option value="4">Apr</option>
+                            <option value="5">May</option>
+                            <option value="6">Jun</option>
+                            <option value="7">Jul</option>
+                            <option value="8">Aug</option>
+                            <option value="9">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Year</label>
+                        <input type="text" class="form-control yer">
+                    </div>
+                    <div class="mb-3">
+                        <label>Amount</label>
+                        <input type="text" class="form-control amt">
+                    </div>
+                    <input type="hidden" id="hdn">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary addition">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+$(document).ready(function(){
+    loaddata();
+    getemployeeid();
+    getallowancehead();
+});
+
+// Populate employee dropdown
+function getemployeeid(){
+    $.ajax({
+        method: 'get',
+        url: '@Url.Action("GetActiveEmployees", "Employee")',
+        success: function(respo){
+            var html = '<option value="0">Choose</option>';
+            $.each(respo, function(i,x){
+                html += '<option value="'+x.employeeId+'">'+x.fullname+'</option>';
+            });
+            $('.empid').html(html);
+            $('.empid_filter').html(html);
+        }
+    });
+}
+
+// Populate allowance dropdown
+function getallowancehead(){
+    $.ajax({
+        method: 'get',
+        url: '@Url.Action("GetActiveAllowance", "Allowance")',
+        success: function(respo){
+            var html = '<option value="0">Choose</option>';
+            $.each(respo, function(i,x){
+                html += '<option value="'+x.allowanceId+'">'+x.allowanceName+'</option>';
+            });
+            $('.dedid').html(html);
+            $('.dedid_filter').html(html);
+        }
+    });
+}
+
+// Load table data
+        function loaddata(){
+            var empName = $('.empname_filter').val();
+            var allowName = $('.allowname_filter').val();
+            $.ajax({
+                method: 'get',
+                url: '@Url.Action("loaddata", "EmployeeAllowanceInfo")',
+                data: { empName: empName, allowName: allowName },
+                success: function(respo){
+                    var html = '';
+                    $.each(respo, function(i,item){
+                        html += '<tr>';
+                        html += '<td>'+(i+1)+'</td>';
+                        html += '<td>'+item.employeeFullname+'</td>';
+                        html += '<td>'+item.allowanceName+'</td>';
+                        html += '<td>'+item.allowanceYear+'</td>';
+                        html += '<td>'+item.allowanceMonth+'</td>';
+                        html += '<td>'+item.amount+'</td>';
+                                  html += '<td><button class="btn btn-sm btn-secondary me  change" style="margin-right:8px;" data-key="'+item.employeeAllowanceID+'"><i class="fa-solid fa-pen-to-square"></i> Edit</button>';
+                                html += '<button class="btn btn-sm  btn-danger remove" data-key="'+item.employeeAllowanceID+'"><i class="fa-solid fa-trash"></i> Delete</button></td>';
+                        html += '</tr>';
+                    });
+                    $('.main-data').html(html);
+                    new DataTable('.tblSetup');
+                }
+            });
+        }
+
+// Edit row
+$(document).on('click','.change',function(){
+    var ID = $(this).data('key');
+    $('#hdn').val(ID);
+    $.ajax({
+        method: 'get',
+        url: '@Url.Action("edit_req", "EmployeeAllowanceInfo")?employeeallowanceid='+ID,
+        success: function(respo){
+            $('.empid').val(respo.data.employeeID);
+            $('.dedid').val(respo.data.allowanceId);
+            $('.mon').val(respo.data.allowanceMonth);
+            $('.yer').val(respo.data.allowanceYear);
+            $('.amt').val(respo.data.amount);
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            myModal.show();
+        }
+    });
+});
+
+// Add/Edit Save
+$(document).on('click','.addition',function(){
+    var data = {
+        mainid: $('#hdn').val(),
+        employeeid: $('.empid').val(),
+        allowanceid: $('.dedid').val(),
+        month: $('.mon').val(),
+        year: $('.yer').val(),
+        amount: $('.amt').val()
+    };
+
+    $.ajax({
+        type: 'POST', // MUST be POST
+        url: '@Url.Action("Adddata", "EmployeeAllowanceInfo")',
+        data: data,
+        success: function(respo){
+            clear();
+            loaddata();
+            Swal.fire("Good job!", respo.Message, "success");
+            var myModal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
+            if(myModal) myModal.hide();
+        }
+    });
+});
+
+// Delete row
+$(document).on('click','.remove',function(){
+    var ID = $(this).data('key');
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!"
+    }).then((result)=>{
+        if(result.isConfirmed){
+            $.ajax({
+                type: 'POST', // MUST be POST
+                url: '@Url.Action("deletedata", "EmployeeAllowanceInfo")',
+                data: {id:ID},
+                success: function(respo){
+                    loaddata();
+                    Swal.fire("Deleted!", "Data has been deleted.", "success");
+                }
+            });
+        }
+    });
+});
+
+// Clear modal
+function clear(){
+    $('.empid').val('0');
+    $('.dedid').val('0');
+    $('.mon').val('0');
+    $('.yer').val('');
+    $('.amt').val('');
+    $('#hdn').val('');
+}
+
+// Search
+$(document).on('click','.find',function(){
+    loaddata();
+});
+</script>
+}
