@@ -52,6 +52,8 @@ wwwroot\assets\scss\style.scss
 wwwroot\css\login.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\.gitignore
+wwwroot\images\admin.jpg
 wwwroot\images\avatar\1.jpg
 wwwroot\images\avatar\2.jpg
 wwwroot\images\avatar\3.jpg
@@ -60,13 +62,10 @@ wwwroot\images\avatar\5.jpg
 wwwroot\images\avatar\6.jpg
 wwwroot\images\avatar\64-1.jpg
 wwwroot\images\avatar\64-2.jpg
-wwwroot\images\cloud-based-payroll-software.png
-wwwroot\images\download (13).png
-wwwroot\images\images (10).png
-wwwroot\images\images (11).png
-wwwroot\images\images (12).png
-wwwroot\images\images (13).png
-wwwroot\images\payroll.jpg
+wwwroot\images\favicon.png
+wwwroot\images\logo.png
+wwwroot\images\logo.psd
+wwwroot\images\logo2.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

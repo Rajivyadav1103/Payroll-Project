@@ -1,560 +1,761 @@
-﻿<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ela Admin - HTML5 Admin Template</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.22.1/sweetalert2.css" integrity="sha512-aZNBVcDIrRR7lLUG3UsYBKkl9C0hJHhrXiPdUookOGZQB4h9g2dB48O+BfWjRPWZcVShQW76xtCwgGrliVu5sg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="~/assets/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="~/assets/css/style.css">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
-
-    @* frontasome *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+﻿
 
 
-    @* cdn css link of toastr *@
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-
-    @* cdn link of sweatalert css *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.16.1/sweetalert2.css" integrity="sha512-fjO3Vy3QodX9c6G9AUmr6WuIaEPdGRxBjD7gjatG5gGylzYyrEq3U0q+smkG6CwIY0L8XALRFHh4KPHig0Q1ug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    @* datatable.net download buttons css cdn link  *@
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css" />
-
-
-    @* <!-- DataTables Core CSS -->
- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
-
- <!-- Buttons CSS -->
- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"> *@
-
-
-
-
-
-    @* frontASome  *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    @* cdn link  of toastr js link *@
-
-
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
-
-    @* frontasome *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    @* cdn css link of toastr *@
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-
-    @* cdn link of sweatalert css *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.16.1/sweetalert2.css" integrity="sha512-fjO3Vy3QodX9c6G9AUmr6WuIaEPdGRxBjD7gjatG5gGylzYyrEq3U0q+smkG6CwIY0L8XALRFHh4KPHig0Q1ug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
-    @* datatable.net download buttons css cdn link  *@
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css" />
-
-
-    @* <!-- DataTables Core CSS -->
- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
-
- <!-- Buttons CSS -->
- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"> *@
-
-
-
-
-
-    @* frontASome  *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    @* cdn link  of toastr js link *@
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-
-    <style>
-        #weatherWidget .currentDesc {
-            color: #ffffff !important;
-        }
-
-        .traffic-chart {
-            min-height: 335px;
-        }
-
-        #flotPie1 {
-            height: 150px;
-        }
-
-            #flotPie1 td {
-                padding: 3px;
-            }
-
-            #flotPie1 table {
-                top: 20px !important;
-                right: -10px !important;
-            }
-
-        .chart-container {
-            display: table;
-            min-width: 270px;
-            text-align: left;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        #flotLine5 {
-            height: 105px;
-        }
-
-        #flotBarChart {
-            height: 150px;
-        }
-
-        #cellPaiChart {
-            height: 160px;
-        }
-
-    </style>
-
-    @await RenderSectionAsync("Header", required: false)
-</head>
-
-<body>
-    @{
-        Html.RenderPartial("_LeftBar");
-    }
-
-    <div id="right-panel" class="right-panel">
-
-        @{
-            Html.RenderPartial("_HeaderPart");
-        }
-
-
-        <div class="content">
-            @RenderBody()
+<div class="animated fadeIn">
+    <!-- Widgets  -->
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-1">
+                            <i class="pe-7s-cash"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text">$<span class="count">23569</span></div>
+                                <div class="stat-heading">Revenue</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="clearfix"></div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-2">
+                            <i class="pe-7s-cart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">3435</span></div>
+                                <div class="stat-heading">Sales</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        @{
-            Html.RenderPartial("_Footer");
-        }
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-3">
+                            <i class="pe-7s-browser"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">349</span></div>
+                                <div class="stat-heading">Templates</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-4">
+                            <i class="pe-7s-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">2986</span></div>
+                                <div class="stat-heading">Clients</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- /Widgets -->
+    <!--  Traffic  -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div id="mychart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div id="mycharts">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div id="pie-chart"></div>
+                </div>
+            </div>
+        </div>
 
+    </div>
+    <!--  /Traffic -->
+    <div class="clearfix"></div>
+    <!-- Orders -->
+    <div class="orders">
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="box-title">Orders </h4>
+                    </div>
+                    <div class="card-body--">
+                        <div class="table-stats order-table ov-h">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th class="serial">#</th>
+                                        <th class="avatar">Avatar</th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="serial">1.</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
+                                            </div>
+                                        </td>
+                                        <td> #5469 </td>
+                                        <td>  <span class="name">Louis Stanley</span> </td>
+                                        <td> <span class="product">iMax</span> </td>
+                                        <td><span class="count">231</span></td>
+                                        <td>
+                                            <span class="badge badge-complete">Complete</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="serial">2.</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="images/avatar/2.jpg" alt=""></a>
+                                            </div>
+                                        </td>
+                                        <td> #5468 </td>
+                                        <td>  <span class="name">Gregory Dixon</span> </td>
+                                        <td> <span class="product">iPad</span> </td>
+                                        <td><span class="count">250</span></td>
+                                        <td>
+                                            <span class="badge badge-complete">Complete</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="serial">3.</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="images/avatar/3.jpg" alt=""></a>
+                                            </div>
+                                        </td>
+                                        <td> #5467 </td>
+                                        <td>  <span class="name">Catherine Dixon</span> </td>
+                                        <td> <span class="product">SSD</span> </td>
+                                        <td><span class="count">250</span></td>
+                                        <td>
+                                            <span class="badge badge-complete">Complete</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="serial">4.</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="images/avatar/4.jpg" alt=""></a>
+                                            </div>
+                                        </td>
+                                        <td> #5466 </td>
+                                        <td>  <span class="name">Mary Silva</span> </td>
+                                        <td> <span class="product">Magic Mouse</span> </td>
+                                        <td><span class="count">250</span></td>
+                                        <td>
+                                            <span class="badge badge-pending">Pending</span>
+                                        </td>
+                                    </tr>
+                                    <tr class=" pb-0">
+                                        <td class="serial">5.</td>
+                                        <td class="avatar pb-0">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="images/avatar/6.jpg" alt=""></a>
+                                            </div>
+                                        </td>
+                                        <td> #5465 </td>
+                                        <td>  <span class="name">Johnny Stephens</span> </td>
+                                        <td> <span class="product">Monitor</span> </td>
+                                        <td><span class="count">250</span></td>
+                                        <td>
+                                            <span class="badge badge-complete">Complete</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> <!-- /.table-stats -->
+                    </div>
+                </div> <!-- /.card -->
+            </div>  <!-- /.col-lg-8 -->
 
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/dataTables.buttons.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.print.min.js"></script>
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-lg-6 col-xl-12">
+                        <div class="card br-0">
+                            <div class="card-body">
+                                <div class="chart-container ov-h">
+                                    <div id="flotPie1" class="float-chart"></div>
+                                </div>
+                            </div>
+                        </div><!-- /.card -->
+                    </div>
 
+                    <div class="col-lg-6 col-xl-12">
+                        <div class="card bg-flat-color-3  ">
+                            <div class="card-body">
+                                <h4 class="card-title m-0  white-color ">August 2018</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotLine5" class="flot-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /.col-md-4 -->
+        </div>
+    </div>
+    <!-- /.orders -->
+    <!-- To Do and Live Chat -->
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title box-title">To Do List</h4>
+                    <div class="card-content">
+                        <div class="todo-list">
+                            <div class="tdl-holder">
+                                <div class="tdl-content">
+                                    <ul>
+                                        <li>
+                                            <label>
+                                                <input type="checkbox"><i class="check-box"></i><span>Conveniently fabricate interactive technology for ....</span>
+                                                <a href='#' class="fa fa-times"></a>
+                                                <a href='#' class="fa fa-pencil"></a>
+                                                <a href='#' class="fa fa-check"></a>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="checkbox"><i class="check-box"></i><span>Creating component page</span>
+                                                <a href='#' class="fa fa-times"></a>
+                                                <a href='#' class="fa fa-pencil"></a>
+                                                <a href='#' class="fa fa-check"></a>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked><i class="check-box"></i><span>Follow back those who follow you</span>
+                                                <a href='#' class="fa fa-times"></a>
+                                                <a href='#' class="fa fa-pencil"></a>
+                                                <a href='#' class="fa fa-check"></a>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked><i class="check-box"></i><span>Design One page theme</span>
+                                                <a href='#' class="fa fa-times"></a>
+                                                <a href='#' class="fa fa-pencil"></a>
+                                                <a href='#' class="fa fa-check"></a>
+                                            </label>
+                                        </li>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked><i class="check-box"></i><span>Creating component page</span>
+                                                <a href='#' class="fa fa-times"></a>
+                                                <a href='#' class="fa fa-pencil"></a>
+                                                <a href='#' class="fa fa-check"></a>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> <!-- /.todo-list -->
+                    </div>
+                </div> <!-- /.card-body -->
+            </div><!-- /.card -->
+        </div>
 
-    <script src="~/assets/js/main.js"></script>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
 
-    <!--  Chart js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+                    <div id="donutchart" style="width: 100%; height: 500px;"></div>
 
-    <!--Chartist Chart-->
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
+                </div> <!-- /.card-body -->
+            </div><!-- /.card -->
+        </div>
+    </div>
+    <!-- /To Do and Live Chat -->
+    <!-- Calender Chart Weather  -->
+    <div class="row">
+        <div class="col-md-12 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <!-- <h4 class="box-title">Chandler</h4> -->
+                    <div class="calender-cont widget-calender">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div><!-- /.card -->
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
-    <script src="assets/js/init/weather-init.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="col-lg-4 col-md-6">
+            <div class="card ov-h">
+                <div class="card-body bg-flat-color-2">
+                    <div id="flotBarChart" class="float-chart ml-4 mr-4"></div>
+                </div>
+                <div id="cellPaiChart" class="float-chart"></div>
+            </div><!-- /.card -->
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card weather-box">
+                <h4 class="weather-title box-title">Weather</h4>
+                <div class="card-body">
+                    <div class="weather-widget">
+                        <div id="weather-one" class="weather-one"></div>
+                    </div>
+                </div>
+            </div><!-- /.card -->
+        </div>
+    </div>
+    <!-- /Calender Chart Weather -->
+    <!-- Modal - Calendar - Add New Event -->
+    <div class="modal fade none-border" id="event-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><strong>Add New Event</strong></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
+                    <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#event-modal -->
+    <!-- Modal - Calendar - Add Category -->
+    <div class="modal fade none-border" id="add-category">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><strong>Add a category </strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">Category Name</label>
+                                <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Choose Category Color</label>
+                                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                    <option value="success">Success</option>
+                                    <option value="danger">Danger</option>
+                                    <option value="info">Info</option>
+                                    <option value="pink">Pink</option>
+                                    <option value="primary">Primary</option>
+                                    <option value="warning">Warning</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#add-category -->
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="~/assets/js/init/fullcalendar-init.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js"></script>
-
-
-    <!--Local Stuff-->
+@section Scripts {
     <script>
-        jQuery(document).ready(function ($) {
-            "use strict";
 
-            // Pie chart flotPie1
-            var piedata = [
-                { label: "Desktop visits", data: [[1, 32]], color: '#5c6bc0' },
-                { label: "Tab visits", data: [[1, 33]], color: '#ef5350' },
-                { label: "Mobile visits", data: [[1, 35]], color: '#66bb6a' }
-            ];
-
-            $.plot('#flotPie1', piedata, {
-                series: {
-                    pie: {
-                        show: true,
-                        radius: 1,
-                        innerRadius: 0.65,
-                        label: {
-                            show: true,
-                            radius: 2 / 3,
-                            threshold: 1
-                        },
-                        stroke: {
-                            width: 0
-                        }
-                    }
-                },
-                grid: {
-                    hoverable: true,
-                    clickable: true
-                }
-            });
-            // Pie chart flotPie1  End
-            // cellPaiChart
-            var cellPaiChart = [
-                { label: "Direct Sell", data: [[1, 65]], color: '#5b83de' },
-                { label: "Channel Sell", data: [[1, 35]], color: '#00bfa5' }
-            ];
-            $.plot('#cellPaiChart', cellPaiChart, {
-                series: {
-                    pie: {
-                        show: true,
-                        stroke: {
-                            width: 0
-                        }
-                    }
-                },
-                legend: {
-                    show: false
-                }, grid: {
-                    hoverable: true,
-                    clickable: true
-                }
-
-            });
-            // cellPaiChart End
-            // Line Chart  #flotLine5
-            var newCust = [[0, 3], [1, 5], [2, 4], [3, 7], [4, 9], [5, 3], [6, 6], [7, 4], [8, 10]];
-
-            var plot = $.plot($('#flotLine5'), [{
-                data: newCust,
-                label: 'New Data Flow',
-                color: '#fff'
-            }],
-                {
-                    series: {
-                        lines: {
-                            show: true,
-                            lineColor: '#fff',
-                            lineWidth: 2
-                        },
-                        points: {
-                            show: true,
-                            fill: true,
-                            fillColor: "#ffffff",
-                            symbol: "circle",
-                            radius: 3
-                        },
-                        shadowSize: 0
-                    },
-                    points: {
-                        show: true,
-                    },
-                    legend: {
-                        show: false
-                    },
-                    grid: {
-                        show: false
-                    }
-                });
-            // Line Chart  #flotLine5 End
-            // Traffic Chart using chartist
-            if ($('#traffic-chart').length) {
-                var chart = new Chartist.Line('#traffic-chart', {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                    series: [
-                        [0, 18000, 35000, 25000, 22000, 0],
-                        [0, 33000, 15000, 20000, 15000, 300],
-                        [0, 15000, 28000, 15000, 30000, 5000]
-                    ]
-                }, {
-                    low: 0,
-                    showArea: true,
-                    showLine: false,
-                    showPoint: false,
-                    fullWidth: true,
-                    axisX: {
-                        showGrid: true
-                    }
-                });
-
-                chart.on('draw', function (data) {
-                    if (data.type === 'line' || data.type === 'area') {
-                        data.element.animate({
-                            d: {
-                                begin: 2000 * data.index,
-                                dur: 2000,
-                                from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-                                to: data.path.clone().stringify(),
-                                easing: Chartist.Svg.Easing.easeOutQuint
-                            }
-                        });
-                    }
-                });
-            }
-            // Traffic Chart using chartist End
-            //Traffic chart chart-js
-            if ($('#TrafficChart').length) {
-                var ctx = document.getElementById("TrafficChart");
-                ctx.height = 150;
-                var myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-                        datasets: [
-                            {
-                                label: "Visit",
-                                borderColor: "rgba(4, 73, 203,.09)",
-                                borderWidth: "1",
-                                backgroundColor: "rgba(4, 73, 203,.5)",
-                                data: [0, 2900, 5000, 3300, 6000, 3250, 0]
-                            },
-                            {
-                                label: "Bounce",
-                                borderColor: "rgba(245, 23, 66, 0.9)",
-                                borderWidth: "1",
-                                backgroundColor: "rgba(245, 23, 66,.5)",
-                                pointHighlightStroke: "rgba(245, 23, 66,.5)",
-                                data: [0, 4200, 4500, 1600, 4200, 1500, 4000]
-                            },
-                            {
-                                label: "Targeted",
-                                borderColor: "rgba(40, 169, 46, 0.9)",
-                                borderWidth: "1",
-                                backgroundColor: "rgba(40, 169, 46, .5)",
-                                pointHighlightStroke: "rgba(40, 169, 46,.5)",
-                                data: [1000, 5200, 3600, 2600, 4200, 5300, 0]
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        tooltips: {
-                            mode: 'index',
-                            intersect: false
-                        },
-                        hover: {
-                            mode: 'nearest',
-                            intersect: true
-                        }
-
-                    }
-                });
-            }
-            //Traffic chart chart-js  End
-            // Bar Chart #flotBarChart
-            $.plot("#flotBarChart", [{
-                data: [[0, 18], [2, 8], [4, 5], [6, 13], [8, 5], [10, 7], [12, 4], [14, 6], [16, 15], [18, 9], [20, 17], [22, 7], [24, 4], [26, 9], [28, 11]],
-                bars: {
-                    show: true,
-                    lineWidth: 0,
-                    fillColor: '#ffffff8a'
-                }
-            }], {
-                grid: {
-                    show: false
-                }
-            });
-            // Bar Chart #flotBarChart End
+        $(document).ready(function () {
+            loadChart();
+            pieChart();
+            // loadAllowanceTypeDistribution();
+            loadAllowancedonutchart();
         });
 
-    </script>
+        function pieChart() {
+            Highcharts.chart('pie-chart', {
+                chart: {
+                    type: 'pie',
+                    zooming: {
+                        type: 'xy'
+                    },
+                    panning: {
+                        enabled: true,
+                        type: 'xy'
+                    },
+                    panKey: 'shift'
+                },
+                title: {
+                    text: 'Egg Yolk Composition'
+                },
+                tooltip: {
+                    valueSuffix: '%'
+                },
+                subtitle: {
+                    text:
+                        'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">MDPI</a>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: [{
+                            enabled: true,
+                            distance: 20
+                        }, {
+                            enabled: true,
+                            distance: -40,
+                            format: '{point.percentage:.1f}%',
+                            style: {
+                                fontSize: '1.2em',
+                                textOutline: 'none',
+                                opacity: 0.7
+                            },
+                            filter: {
+                                operator: '>',
+                                property: 'percentage',
+                                value: 10
+                            }
+                        }]
+                    }
+                },
+                series: [
+                    {
+                        name: 'Percentage',
+                        colorByPoint: true,
+                        data: [
+                            {
+                                name: 'Water',
+                                y: 55.02
+                            },
+                            {
+                                name: 'Fat',
+                                sliced: true,
+                                selected: true,
+                                y: 26.71
+                            },
+                            {
+                                name: 'Carbohydrates',
+                                y: 1.09
+                            },
+                            {
+                                name: 'Protein',
+                                y: 15.5
+                            },
+                            {
+                                name: 'Ash',
+                                y: 1.68
+                            }
+                        ]
+                    }
+                ]
+            });
+        }
+        // pichart end
 
-    <script>
 
-        toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-bottom-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
+        // allowancedeductioninfo chart
+
+        function loadChart() {
+
+            $.ajax({
+                method: 'GET',
+                url: '@Url.Action("GetTotalAllowancePerEmployee", "Home")',
+                success: function (res) {
+                    if (res.success) {
+                        var allowanceData = $.parseJSON(res.data);
+
+                        loadAllowanceChart(allowanceData);
+                    } else {
+                        alert(res.message);
+                    }
+                },
+                beforeSend: function () {
+                    // $.blockUI();
+                },
+                complete: function () {
+                    //$.unblockUI();
+                }
+            });
+
+        }
+
+
+         function loadAllowancedonutchart() {
+
+            $.ajax({
+                method: 'GET',
+                url: '@Url.Action("GetAllowanceDistribution", "Home")',
+                success: function (res) {
+                    if (res.success) {
+                        var allowanceSumData = $.parseJSON(res.data);
+                        console.log(allowanceSumData)
+                        loadAllowanceTypeDistribution(allowanceSumData);
+                    } else {
+                        alert(res.message);
+                    }
+                },
+                beforeSend: function () {
+                    // $.blockUI();
+                },
+                complete: function () {
+                    //$.unblockUI();
+                }
+            });
+
+        }
+
+
+
+        function loadAllowanceTypeDistribution(Data){
+                    am5.ready(function() {
+
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("donutchart");
+
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([
+                      am5themes_Animated.new(root)
+                    ]);
+
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+                    var chart = root.container.children.push(am5percent.PieChart.new(root, {
+                      radius: am5.percent(90),
+                      innerRadius: am5.percent(50),
+                      layout: root.horizontalLayout
+                    }));
+
+                    // Create series
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+                    var series = chart.series.push(am5percent.PieSeries.new(root, {
+                      name: "Series",
+                      valueField: "total",
+                      categoryField: "allowancename"
+                    }));
+
+
+                    // Set data
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+
+                            series.data.setAll(
+                              Data.map(function (item) {
+                                return {
+                                  allowancename: item.allowancename,
+                                  total: item.total
+                                };
+                              })
+                            );
+
+
+                    // Disabling labels and ticks
+                    series.labels.template.set("visible", false);
+                    series.ticks.template.set("visible", false);
+
+                    // Adding gradients
+                    series.slices.template.set("strokeOpacity", 0);
+                    series.slices.template.set("fillGradient", am5.RadialGradient.new(root, {
+                      stops: [{
+                        brighten: -0.8
+                      }, {
+                        brighten: -0.8
+                      }, {
+                        brighten: -0.5
+                      }, {
+                        brighten: 0
+                      }, {
+                        brighten: -0.5
+                      }]
+                    }));
+
+                    // Create legend
+                    // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
+                    var legend = chart.children.push(am5.Legend.new(root, {
+                      centerY: am5.percent(50),
+                      y: am5.percent(50),
+                      layout: root.verticalLayout
+                    }));
+                    // set value labels align to right
+                    legend.valueLabels.template.setAll({ textAlign: "right" })
+                    // set width and max width of labels
+                    legend.labels.template.setAll({
+                      maxWidth: 140,
+                      width: 140,
+                      oversizedBehavior: "wrap"
+                    });
+
+                    legend.data.setAll(series.dataItems);
+
+
+                    // Play initial series animation
+                    // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+                    series.appear(1000, 100);
+
+                    }); // end am5.ready()
+
+
+        }
+
+
+
+
+
+
+        function loadAllowanceChart(allowanceData) {
+
+            var empArray = allowanceData.map(x => {return x.EmployeeName});
+            var amountArray = allowanceData.map(x => {return x.TotalAllowance});
+
+            Highcharts.chart('mychart', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Total Allowance By Employee'
+                },
+                xAxis: {
+                    categories: empArray,
+                    crosshair: true,
+                    accessibility: {
+                        description: 'Employee Name'
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Total Allowance Amount'
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [
+                    {
+                        name: 'Emp Name',
+                        data: amountArray
+                    }
+                ]
+            });
+        }
+
+        // loadAllowanceChart end
+
+        // employeedeductioninfo chart
+
+        function loadChart() {
+
+            $.ajax({
+                method: 'GET',
+                url: '@Url.Action("GetTotalDeductionPerEmployee", "Home")',
+                success: function (res) {
+                    if (res.success) {
+                        var xyz = $.parseJSON(res.data);
+
+                        loadDeductionChart(xyz);
+                    } else {
+                        alert(res.message);
+                    }
+                },
+                beforeSend: function () {
+                    // $.blockUI();
+                },
+                complete: function () {
+                    //$.unblockUI();
+                }
+            });
+
+
+
+
+
+
+        }
+
+
+
+        function loadDeductionChart(deductionData) {
+
+            debugger;
+            var empArray = deductionData.map(x => {return x.EmployeeName});
+            var amountArray = deductionData.map(x => {return x.TotalDeduction});
+
+            Highcharts.chart('mycharts',{
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Total Deduction By Employee'
+                },
+                xAxis: {
+                    categories: empArray,
+                    crosshair: true,
+                    accessibility: {
+                        description: 'Employee Name'
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Total Deduction Amount'
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [
+                    {
+                        name: 'Emp Name',
+                        data: amountArray
+                    }
+                ]
+            });
         }
     </script>
-    @* jqurey blockui cdn link  *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-    @* datatables.net download buttons js cdn link  *@
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/dataTables.buttons.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.print.min.js"></script>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/buttons.html5.min.js"></script>
-
-    @* frontASome  *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/i18n/nb-NO.js"></script>
-    @* cdn link  of toastr js link *@
-
-
-
-    @* jqurey blockui cdn link  *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    @* datatables.net download buttons js cdn link  *@
-
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/dataTables.buttons.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.print.min.js"></script>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/buttons.html5.min.js"></script>
-
-
-    @* jqurey blockui cdn link  *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-    @* datatables.net download buttons js cdn link  *@
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/dataTables.buttons.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.print.min.js"></script>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/buttons.html5.min.js"></script>
-
-    @* frontASome  *@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/svg-with-js.min.css" integrity="sha512-vtbctC7BecZMHWPWej78RfcB9RmGpIx+G4+1IT2/Z9P7SIXApaI1XLOCrzpSKgNyTiw1VCmg/EkJXGo+LJYcpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/i18n/nb-NO.js"></script>
-    @* cdn link  of toastr js link *@
-
-
-
-    @* jqurey blockui cdn link  *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    @* datatables.net download buttons js cdn link  *@
-
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/dataTables.buttons.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.2.3/js/buttons.print.min.js"></script>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons/js/buttons.html5.min.js"></script>
-
-
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+}

@@ -1,24 +1,26 @@
-﻿
-
-
-
+﻿<!-- Deduction Search & Add Button -->
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
-                        <label>Deduction Name</label><br />
+                        <label>Deduction Name</label>
                         <input type="text" class="form-control txtSearchName" />
                     </div>
                     <div class="col-md-3">
-                        <label>Deduction Code</label><br />
+                        <label>Deduction Code</label>
                         <input type="text" class="form-control txtSearchCode" />
                     </div>
-                    <div class="col-md-3">
-                        <br />
-                        <button type="button" class="btn btn-primary btnSearch"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-                        <button type="button" class="btn btn-success btnCreate"><i class="fa-solid fa-address-book"></i> Add Deduction</button>
+                    <div class="col-md-3 mt-4">
+                        <button type="button" class="btn btn-primary btnSearch">
+                            <i class="fa-solid fa-magnifying-glass"></i> Search
+                        </button>
+
+                        <!-- Bootstrap 5: data-bs-toggle, data-bs-target -->
+                        <button type="button" class="btn btn-success btnCreate" data-bs-toggle="modal" data-bs-target="#mdlSetup">
+                            <i class="fa-solid fa-address-book"></i> Add Deduction
+                        </button>
                     </div>
                 </div>
             </div>
@@ -26,48 +28,51 @@
     </div>
 </div>
 
-
-
-<!-- Modal -->
+<!-- Deduction Modal -->
 <div class="modal fade" id="mdlSetup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Deduction Form</h1>
+                <h5 class="modal-title" id="exampleModalLabel">Deduction Form</h5>
+                <!-- Bootstrap 5 close button -->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
-                <div class="col-md-12">
-                    <label>Deduction Name</label><br />
+                <div class="form-group">
+                    <label>Deduction Name</label>
                     <input type="text" class="form-control txtDeductionHeadName" />
                 </div>
-                <div class="col-md-12 mt-3">
-                    <label>Deduction Code</label><br />
+
+                <div class="form-group mt-2">
+                    <label>Deduction Code</label>
                     <input type="text" class="form-control txtDeductionHeadCode" />
                 </div>
-                <div class="col-md-12 mt-3">
-                    <label>Order Key</label><br />
+
+                <div class="form-group mt-2">
+                    <label>Order Key</label>
                     <input type="number" class="form-control txtOrderKey" />
                 </div>
-                <div class="col-md-12 mt-3">
-                    <button type="button" class="btn btn-success btnSave"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-                    <button type="button" id="btnCancel" class="btn btn-danger"><i class="fa-solid fa-xmark"></i> Cancel</button>
-                    <input type="hidden" value="0" class="hdnId" />
-                </div>
+            </div>
 
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                </button>
+
+                <button type="button" class="btn btn-success btnSave">
+                    <i class="fa-solid fa-floppy-disk"></i> Save
+                </button>
+
+                <input type="hidden" class="hdnId" value="0" />
+            </div>
 
         </div>
     </div>
 </div>
-</div>
 
-
-
-
-
-
-
-
+<!-- Deduction Table -->
 <div class="row mt-2">
     <div class="col-md-12">
         <div class="card">
@@ -89,8 +94,28 @@
             </div>
         </div>
     </div>
-    
 </div>
+
+<!-- Save Button Script for Bootstrap 5 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modalEl = document.getElementById('mdlSetup');
+        const modalInstance = new bootstrap.Modal(modalEl);
+
+        document.querySelector('.btnSave').addEventListener('click', function () {
+            // Simulate save (replace with your AJAX call)
+            setTimeout(() => {
+                toastr.success('Deduction saved successfully!');
+
+                // Hide modal correctly
+                modalInstance.hide();
+
+                // Optional: reset inputs
+                modalEl.querySelectorAll('input').forEach(input => input.value = '');
+            }, 500);
+        });
+    });
+</script>
 
 
 @section Scripts {
@@ -262,3 +287,20 @@
         });
     </script>
 }
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- DataTables core JS -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<!-- DataTables Buttons (for export) -->
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+<!-- JSZip for Excel export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- PDFMake for PDF export (optional) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
