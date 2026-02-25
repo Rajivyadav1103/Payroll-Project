@@ -27,42 +27,100 @@ namespace Payrolls.Controllers
         }
 
         [HttpGet]
-        public JsonResult CheckData(int yearId, int monthId)
+        public JsonResult GetPayrollTable(int yearId, int monthId)
         {
             try
             {
-                var allowances = _context.EmployeeAllowanceInfos
-                    .Where(a => a.AllowanceYear == yearId && a.AllowanceMonth == monthId && a.isActive)
-                    .Select(a => new {
-                        a.EmployeeID,
-                        a.Amount,
-                        EmployeeName = a.Employee.Fullname,
-                        AllowanceName = a.Allowance.AllowanceName
-                    })
-                    .ToList();
+                List<MonthlyPayrollVM> data = new List<MonthlyPayrollVM>();
 
-                var deductions = _context.EmployeeDeductionInfo
-                    .Where(d => d.DeductionYear == yearId && d.DeductionMonth == monthId && d.isActive)
-                    .Select(d => new {
-                        d.EmployeeID,
-                        d.Amount,
-                        EmployeeName = d.Employee.Fullname,
-                        DeductionName = d.DeductionHead.DeductionHeadName
-                    })
-                    .ToList();
+                // Use your existing connection string name "PrimaryConnnection"
+                string connectionString = _configuration.GetConnectionString("PrimaryConnnection");
+
+                // Optional: Add check to make sure connection string is found
+                if (string.IsNullOrEmpty(connectionString))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Connection string 'PrimaryConnnection' not found in appsettings.json"
+                    });
+                }
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = @"select *, (BasicSalary + TotalAllowance - TotalDeduction) as MonthlySalary
+                         From (
+                            select e.EmployeeId, e.Fullname,e.BasicSalary,
+                                   isnull(al.TotalAllowance,0) as TotalAllowance,
+                                   isnull(de.TotalDeduction,0) as TotalDeduction
+                            From Employee e
+                            left outer join (
+                                select EmployeeID, sum(Amount) as TotalAllowance
+                                From EmployeeAllowanceInfos
+                                where isActive = 1
+                                  and AllowanceYear = @yearId
+                                  and AllowanceMonth = @monthId
+                                group by EmployeeID
+                            ) al on e.EmployeeId = al.EmployeeID
+                            left outer join (
+                                select EmployeeID, sum(Amount) as TotalDeduction
+                                From EmployeeDeductionInfo
+                                where isActive = 1
+                                  and DeductionYear = @yearId
+                                  and DeductionMonth = @monthId
+                                group by EmployeeID
+                            ) de on e.EmployeeId = de.EmployeeID
+                            where e.IsActive = 1
+                         ) x";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@yearId", yearId);
+                        cmd.Parameters.AddWithValue("@monthId", monthId);
+
+                        conn.Open();
+                        using (SqlDataReader rdr = cmd.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                                data.Add(new MonthlyPayrollVM
+                                {
+                                    EmployeeId = Convert.ToInt32(rdr["EmployeeId"]),
+                                    Fullname = rdr["Fullname"].ToString(),
+                                    BasicSalary = Convert.ToDecimal(rdr["BasicSalary"]),
+                                    TotalAllowance = Convert.ToDecimal(rdr["TotalAllowance"]),
+                                    TotalDeduction = Convert.ToDecimal(rdr["TotalDeduction"]),
+                                    MonthlySalary = Convert.ToDecimal(rdr["MonthlySalary"]),
+                                    FullnameWithId = rdr["Fullname"] + " (" + rdr["EmployeeId"] + ")"
+                                });
+                            }
+                        }
+                    }
+                }
 
                 return Json(new
                 {
-                    allowances,
-                    deductions,
-                    allowanceCount = allowances.Count,
-                    deductionCount = deductions.Count
+                    success = true,
+                    data = data
+                });
+            }
+            catch (SqlException sqlEx)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Database Error: {sqlEx.Message}"
                 });
             }
             catch (Exception ex)
             {
-                return Json(new { error = ex.Message });
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
             }
         }
     }
 }
+

@@ -86,24 +86,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 246,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DatabaseHelper.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Helper\\DatabaseHelper.cs",
-              "RelativeDocumentMoniker": "Payrolls\\Helper\\DatabaseHelper.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Helper\\DatabaseHelper.cs",
-              "RelativeToolTip": "Payrolls\\Helper\\DatabaseHelper.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T07:40:06.074Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -115,8 +102,7 @@
               "RelativeToolTip": "Payrolls\\Models\\viewModel\\EmployeeAllowanceInfoVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:19:20.799Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:19:20.799Z"
             },
             {
               "$type": "Document",
@@ -128,8 +114,7 @@
               "RelativeToolTip": "Payrolls\\Models\\viewModel\\MonthlyPayrollVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T17:41:50.684Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-21T17:41:50.684Z"
             },
             {
               "$type": "Document",
@@ -141,8 +126,7 @@
               "RelativeToolTip": "Payrolls\\DAO\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAowBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T18:07:36.438Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-21T18:07:36.438Z"
             },
             {
               "$type": "Document",
@@ -152,7 +136,7 @@
               "RelativeDocumentMoniker": "Payrolls\\Controllers\\PayrollController.cs",
               "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Controllers\\PayrollController.cs*",
               "RelativeToolTip": "Payrolls\\Controllers\\PayrollController.cs*",
-              "ViewState": "AgIAACYAAAAAAAAAAAAkwEEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T16:55:21.68Z",
               "EditorCaption": ""
@@ -163,12 +147,24 @@
               "Title": "Generate.cshtml",
               "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Payroll\\Generate.cshtml",
               "RelativeDocumentMoniker": "Payrolls\\Views\\Payroll\\Generate.cshtml",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Payroll\\Generate.cshtml",
-              "RelativeToolTip": "Payrolls\\Views\\Payroll\\Generate.cshtml",
-              "ViewState": "AgIAAMkAAAAAAAAAAAAIwNoAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Views\\Payroll\\Generate.cshtml*",
+              "RelativeToolTip": "Payrolls\\Views\\Payroll\\Generate.cshtml*",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAcwHsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-02-21T16:57:55.225Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Helper\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "Payrolls\\Helper\\DatabaseHelper.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - padmashree International College\\Desktop\\.net class 1\\Payrolls\\Payrolls\\Helper\\DatabaseHelper.cs",
+              "RelativeToolTip": "Payrolls\\Helper\\DatabaseHelper.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T07:40:06.074Z"
             },
             {
               "$type": "Document",
@@ -180,8 +176,7 @@
               "RelativeToolTip": "Payrolls\\Helper\\Extensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T17:11:48.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-21T17:11:48.638Z"
             },
             {
               "$type": "Document",
@@ -193,8 +188,7 @@
               "RelativeToolTip": "Payrolls\\Models\\EmployeeAllowanceInfo.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAgwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:19:06.777Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:19:06.777Z"
             },
             {
               "$type": "Document",
@@ -206,8 +200,7 @@
               "RelativeToolTip": "Payrolls\\Models\\viewModel\\EmployeeDeductionInfoVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:19:48.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:19:48.107Z"
             },
             {
               "$type": "Document",
@@ -219,8 +212,7 @@
               "RelativeToolTip": "Payrolls\\Models\\EmployeeDeductionInfo.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAgwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:18:19.696Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:18:19.696Z"
             },
             {
               "$type": "Document",
@@ -232,8 +224,7 @@
               "RelativeToolTip": "Payrolls\\Models\\Allowance.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAwwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:18:52.653Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:18:52.653Z"
             },
             {
               "$type": "Document",
@@ -245,8 +236,7 @@
               "RelativeToolTip": "Payrolls\\Models\\Deduction.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAwwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:18:40.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:18:40.357Z"
             },
             {
               "$type": "Document",
@@ -258,8 +248,7 @@
               "RelativeToolTip": "Payrolls\\Models\\Employee.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:18:24.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:18:24.617Z"
             },
             {
               "$type": "Document",
@@ -271,8 +260,7 @@
               "RelativeToolTip": "Payrolls\\Migrations\\20260222062253_newdatabase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:22:54.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:22:54.396Z"
             },
             {
               "$type": "Document",
@@ -284,8 +272,7 @@
               "RelativeToolTip": "Payrolls\\Models\\UserGroup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:18:05.837Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:18:05.837Z"
             },
             {
               "$type": "Document",
@@ -297,8 +284,7 @@
               "RelativeToolTip": "Payrolls\\Models\\Users.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAIwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T06:17:45.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T06:17:45.819Z"
             },
             {
               "$type": "Document",

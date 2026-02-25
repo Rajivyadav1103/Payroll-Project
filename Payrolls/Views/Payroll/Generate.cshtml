@@ -1,6 +1,7 @@
-﻿<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+﻿
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
 <div class="row">
     <div class="col-md-12">
@@ -42,10 +43,14 @@
                         </button>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
 </div>
+
+
 
 <div class="row mt-4">
     <div class="col-md-12">
@@ -70,117 +75,76 @@
             </div>
         </div>
     </div>
+
 </div>
 
-@section Scripts {
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+
+
+
+
+@section Scripts {
     <script>
-        $(document).ready(function() {
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true,
-                "positionClass": "toast-top-right"
-            };
-        });
+
+        $(document).ready(function(){
+            //let table = new DataTable('.my-table');
+
+            $('.my-table').DataTable({
+
+            });
+
+        })
+
+
 
         $(document).on('click', '.btnGenerate', function () {
             console.log("Generate button clicked");
-
-            var yearId = $('.ddlYear').val();
-            var monthId = $('.ddlMonth').val();
-
-            if (yearId === "0") {
-                toastr.warning("Please select Year");
-                return;
-            }
-
-            if (monthId === "0") {
-                toastr.warning("Please select Month");
-                return;
-            }
-
-            // Convert to numbers
             var info = {
-                yearId: parseInt(yearId),
-                monthId: parseInt(monthId)
+                yearId: $('.ddlYear').val() || 0,
+                monthId: $('.ddlMonth').val() || 0
             };
 
-            console.log("Sending data:", info);
 
-            $.ajax({
-                method: 'GET',
-                url: '@Url.Action("GetPayrollTable", "Payroll")',
-                data: info,
-                success: function (res) {
-                    console.log("Response received:", res);
-
-                    if (res.success) {
-                        var htmls = '';
-
-                        if (res.data && res.data.length > 0) {
+            if (info.yearId == 0) {
+                alert('Select Year');
+            } else if (info.monthId == 0) {
+                alert('Select Month')
+            } else {
+                $.ajax({
+                    method: 'GET',
+                    url: '@Url.Action("GetPayrollTable", "Payroll")?yearId=' + info.yearId + '&monthId=' + info.monthId,
+                    success: function (res) {
+                        console.log(res);
+                        if (res.success) {
+                            var htmls = '';
                             $.each(res.data, function (index, item) {
-                                console.log("Item", index, item); // Check what properties exist
-
                                 htmls += '<tr>';
                                 htmls += '<td>' + (index + 1) + '</td>';
-
-                                // Try both lowercase and uppercase property names
-                                htmls += '<td>' + (item.EmployeeId || item.employeeId || '') + '</td>';
-                                htmls += '<td>' + (item.Fullname || item.fullname || '') + '</td>';
-                                htmls += '<td>' + (item.FullnameWithId || item.fullnameWithId || '') + '</td>';
-                                htmls += '<td>' + (item.BasicSalary || item.basicSalary || 0) + '</td>';
-
-                                // FIXED: Use capital letters to match C# property names
-                                htmls += '<td>' + (item.TotalAllowance || item.totalAllowance || 0) + '</td>';
-                                htmls += '<td>' + (item.TotalDeduction || item.totalDeduction || 0) + '</td>';
-                                htmls += '<td>' + (item.MonthlySalary || item.monthlySalary || 0) + '</td>';
+                                htmls += '<td>' + item.employeeId + '</td>';
+                                htmls += '<td>' + item.fullname + '</td>';
+                                htmls += '<td>' + item.fullnameWithId + '</td>';
+                                htmls += '<td>' + item.basicSalary + '</td>';
+                                htmls += '<td>' + item.totalAllowance + '</td>';
+                                htmls += '<td>' + item.totalDeduction + '</td>';
+                                htmls += '<td>' + item.monthlySalary + '</td>';
 
                                 htmls += '</tr>';
                             });
 
-                            toastr.success("Data loaded successfully");
+                            $('.main-data').html(htmls);
                         } else {
-                            htmls = '<tr><td colspan="8" class="text-center">No data found</td></tr>';
-                            toastr.info("No data found");
+                            toastr.error(res.message);
                         }
-
-                        $('.main-data').html(htmls);
-
-                        // Reinitialize DataTable
-                        if ($.fn.DataTable.isDataTable('.tblSetup')) {
-                            $('.tblSetup').DataTable().destroy();
-                        }
-                        $('.tblSetup').DataTable({
-                            pageLength: 10,
-                            ordering: true
-                        });
-                    } else {
-                        toastr.error(res.message || "Error loading data");
+                    },
+                    beforeSend: function () {
+                        // $.blockUI();
+                    },
+                    complete: function () {
+                        //$.unblockUI();
                     }
-                },
-                error: function (xhr, status, error) {
-                    console.error("AJAX Error:", error);
-                    console.error("Response:", xhr.responseText);
-                    toastr.error("Error: " + error);
-                }
-            });
-        });
-
-        // Optional: Add a debug button to check data
-        $(document).on('dblclick', '.btnGenerate', function() {
-            var yearId = $('.ddlYear').val();
-            var monthId = $('.ddlMonth').val();
-
-            $.ajax({
-                url: '@Url.Action("CheckData", "Payroll")',
-                data: { yearId: parseInt(yearId), monthId: parseInt(monthId) },
-                success: function(res) {
-                    console.log("Raw data check:", res);
-                    alert("Check console for data (F12)");
-                }
-            });
+                });
+            }
         });
     </script>
+
 }
