@@ -7,7 +7,7 @@ namespace Payrolls.Controllers
 {
 
    
-    public class EmployeeController : Controller
+    public class EmployeeController : BaseController
     {
 
          ApplicationDbContext _context;

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Payrolls.Controllers
 {
-    public class EmployeeDeductionInfoController : Controller
+    public class EmployeeDeductionInfoController : BaseController
     {
         private readonly ApplicationDbContext _context;
 

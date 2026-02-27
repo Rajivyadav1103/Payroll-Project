@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Payrolls.Controllers
 {
-    public class DeductionController : Controller
+    public class DeductionController : BaseController
     {
         private readonly ApplicationDbContext _context;
 

@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Payrolls.Controllers
 {
-    public class PayrollController : Controller
+    public class PayrollController : BaseController
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;

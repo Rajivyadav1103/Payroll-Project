@@ -7,7 +7,7 @@ using System.Data;
 
 namespace Payrolls.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
          ApplicationDbContext _context;
 

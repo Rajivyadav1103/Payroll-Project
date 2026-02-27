@@ -6,7 +6,7 @@ using Payrolls.Models.viewModel;
 
 namespace Payrolls.Controllers
 {
-    public class EmployeeAllowanceInfoController : Controller
+    public class EmployeeAllowanceInfoController : BaseController
     {
          ApplicationDbContext _Context;
 

@@ -4,7 +4,7 @@ using Payrolls.Models;
 
 namespace Payrolls.Controllers
 {
-    public class AllowanceController : Controller
+    public class AllowanceController : BaseController
     {
         ApplicationDbContext _context;
         public AllowanceController(ApplicationDbContext context)
